@@ -9,7 +9,7 @@ SubmitBtn.addEventListener("click", function (event) {
   // 4- Prevent form from default submitting
   event.preventDefault();
 
-  // 5- Targeting the name and the url element's values
+  // 5- Targeting the name and the URL element's values
   var webName = document.getElementById("name").value;
   var webUrl = document.getElementById("url").value;
 
@@ -32,26 +32,31 @@ SubmitBtn.addEventListener("click", function (event) {
 
   // 10- Call displayBookmarks to update the table
   displayBookmarks();
+
+  // 11- Clear input fields after adding the bookmark
+  document.getElementById("name").value = "";
+  document.getElementById("url").value = "";
 });
 
-// 11- Creating the function that will display the output
+// 12- Creating the function that will display the output
 function displayBookmarks() {
   var tableBody = document.getElementById("tbody"); // Targeting tbody on HTML
   tableBody.innerHTML = ""; // Clearing the table body before adding new data
 
-  // 12- Fetching the saved bookmarks from localStorage
+  // Fetching the saved bookmarks from localStorage
   var savedBookmarks = localStorage.getItem("bookMarks");
 
-  // 13- If there are saved bookmarks, parse them into the array
+  // If there are saved bookmarks, parse them into the array
   if (savedBookmarks !== null) {
     bookmarks = JSON.parse(savedBookmarks);
   }
 
-  // 14- Loop through each bookmark and display it in the table
-  bookmarks.forEach((bookmark) => {
+  // Loop through each bookmark and display it in the table
+  bookmarks.forEach((bookmark, index) => {
     var row = document.createElement("tr"); // Create table row
     var nameCell = document.createElement("td"); // Create table cell for name
     var urlCell = document.createElement("td"); // Create table cell for URL
+    var actionCell = document.createElement("td"); // Create cell for delete button
 
     nameCell.textContent = bookmark.name; // Add name to the cell
 
@@ -60,18 +65,41 @@ function displayBookmarks() {
     link.href = bookmark.url; // Set the URL
     link.textContent = bookmark.url; // Set the display text to the URL
     link.target = "_blank"; // Open the link in a new tab
+    urlCell.appendChild(link); // Append the link to the URL cell
 
-    // Append the link to the urlCell
-    urlCell.appendChild(link);
+    // Create a delete button with a bin icon
+    var deleteBtn = document.createElement("button");
+    deleteBtn.className = "btn btn-danger btn-sm";
+    deleteBtn.innerHTML = '<i class="bi bi-trash"></i>'; // Bin icon from Bootstrap Icons
+    deleteBtn.addEventListener("click", function () {
+      deleteBookmark(index); // Call deleteBookmark with the index of the row
+    });
+    actionCell.appendChild(deleteBtn); // Add delete button to the action cell
 
-    // Append the cells to the row
+    // Append cells to the row
     row.appendChild(nameCell);
     row.appendChild(urlCell);
+    row.appendChild(actionCell);
 
     // Append the row to the table body
     tableBody.appendChild(row);
   });
 }
+
+// 13- Function to delete a specific bookmark
+function deleteBookmark(index) {
+  bookmarks.splice(index, 1); // Remove the bookmark at the given index
+  localStorage.setItem("bookMarks", JSON.stringify(bookmarks)); // Update localStorage
+  displayBookmarks(); // Refresh the displayed table
+}
+
+// 14- Clear all bookmarks functionality
+var clearBtn = document.getElementById("clear");
+clearBtn.addEventListener("click", function () {
+  localStorage.clear(); // Clear all items from localStorage
+  bookmarks = []; // Reset the bookmarks array
+  displayBookmarks(); // Refresh the displayed table
+});
 
 // 15- Call displayBookmarks on page load to display any saved bookmarks
 window.onload = displayBookmarks;

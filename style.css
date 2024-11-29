@@ -1,42 +1,171 @@
-/* Center the container and give it some margin */
+/* General container styling for a clean and centered layout */
 .container {
-  max-width: 600px; /* Limit the container width */
-  margin: 0 auto; /* Center horizontally */
-  padding: 20px; /* Add some padding */
-  background-color: #f9f9f9; /* Light background color */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 600px;
+  margin: 50px auto; /* Center vertically and horizontally */
+  padding: 20px;
+  background: linear-gradient(145deg, #ffffff, #f1f1f1); /* Subtle gradient */
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Smooth shadow */
 }
 
-/* Add some space between the form fields */
-.form-control {
-  margin-bottom: 15px; /* Margin between input fields */
-}
-
-/* Add some space between heading and form */
+/* Stylish heading */
 h1 {
-  text-align: center; /* Center align titles */
-  font-family: "Pacifico", cursive; /* Use Pacifico font */
-  color: #007bff; /* Blue color */
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  font-size: 3rem; /* Larger, modern heading size */
+  color: #5c67f2; /* Vibrant blue for a modern feel */
+  margin-bottom: 20px;
 }
 
-h2 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
+/* Label styles for a clean look */
+.form-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #4a4a4a;
+  margin-bottom: 8px; /* Space under the labels */
 }
 
-/* Style the submit button */
+/* Input field styling */
+.form-control {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  padding: 12px;
+  border: 2px solid #e0e0e0; /* Clean border */
+  border-radius: 8px;
+  background: #f9f9f9; /* Light background for modern feel */
+  transition: all 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #5c67f2; /* Accent color */
+  box-shadow: 0 0 8px rgba(92, 103, 242, 0.2); /* Glow effect on focus */
+  background: #ffffff; /* Brighter focus state */
+}
+
+/* Submit button styles */
 #SubmitBtn {
-  width: 100%; /* Make the button full width */
-  padding: 10px;
-  font-size: 16px;
-  background-color: #28a745; /* Green background */
-  color: white;
+  width: 100%;
+  padding: 12px 0;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: #5c67f2; /* Vibrant blue */
+  color: #fff;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 #SubmitBtn:hover {
-  background-color: #218838; /* Darker green on hover */
+  background: #4a53d4; /* Slightly darker blue */
+  transform: translateY(-2px); /* Subtle hover lift */
+  box-shadow: 0 4px 10px rgba(92, 103, 242, 0.4); /* Glow effect */
+}
+
+/* Clear button styles */
+#clear {
+  background: #ff4d4d; /* Red button for clear */
+  font-size: 1.1rem; /* Same size as submit */
+  padding: 12px 0;
+  font-weight: 600;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px; /* Space between submit and clear */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#clear:hover {
+  background: #e60000; /* Darker red on hover */
+  transform: translateY(-2px); /* Subtle hover lift */
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4); /* Glow effect */
+}
+
+/* Table styling for a sleek design */
+.table {
+  margin-top: 20px;
+  border-collapse: separate;
+  border-spacing: 0 10px; /* Space between rows */
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  width: 100%; /* Ensure table takes full width */
+}
+
+.table th,
+.table td {
+  padding: 12px;
+  text-align: center;
+  border: none;
+  border-radius: 8px; /* Smooth corners for cells */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Light shadow on cells */
+}
+
+/* Table header styling */
+.table th {
+  background: #5c67f2; /* Accent color */
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px 8px 0 0; /* Rounded top corners */
+}
+
+/* Table row hover effect */
+.table tbody tr:hover td {
+  background: #f1f5ff; /* Subtle hover highlight */
+  transform: scale(1.01); /* Slight zoom */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Delete button column styling */
+.table td:last-child {
+  width: 60px; /* Fixed width for consistency */
+  text-align: center;
+  vertical-align: middle; /* Ensures vertical alignment with text */
+  padding: 0; /* Remove extra padding */
+}
+
+/* Delete button styling */
+.delete-btn {
+  background: #ff4d4d; /* Red button for delete */
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  width: 30px; /* Smaller size for the button */
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0 auto; /* Ensure button is centered */
+}
+
+.delete-btn:hover {
+  background: #e60000; /* Darker red on hover */
+  box-shadow: 0 4px 10px rgba(255, 77, 77, 0.4); /* Glow effect */
+}
+
+/* Delete icon styling */
+.delete-btn i {
+  font-size: 1rem; /* Icon size */
+  line-height: 1; /* Adjust icon alignment */
+}
+
+/* Table links styling */
+.table a {
+  color: #5c67f2; /* Link color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.table a:hover {
+  color: #4a53d4; /* Darker blue */
+  text-decoration: underline; /* Underline on hover */
 }
