@@ -1,0 +1,42 @@
+/* Center the container and give it some margin */
+.container {
+  max-width: 600px; /* Limit the container width */
+  margin: 0 auto; /* Center horizontally */
+  padding: 20px; /* Add some padding */
+  background-color: #f9f9f9; /* Light background color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Add some space between the form fields */
+.form-control {
+  margin-bottom: 15px; /* Margin between input fields */
+}
+
+/* Add some space between heading and form */
+h1 {
+  text-align: center; /* Center align titles */
+  font-family: "Pacifico", cursive; /* Use Pacifico font */
+  color: #007bff; /* Blue color */
+}
+
+h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+}
+
+/* Style the submit button */
+#SubmitBtn {
+  width: 100%; /* Make the button full width */
+  padding: 10px;
+  font-size: 16px;
+  background-color: #28a745; /* Green background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#SubmitBtn:hover {
+  background-color: #218838; /* Darker green on hover */
+}
